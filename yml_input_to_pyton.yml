@@ -1,0 +1,24 @@
+name: Send input to pyton
+on:
+  workflow_dispatch:
+    inputs:
+      caption_text:
+        type: string 
+        description: caption text
+
+jobs:
+  download_and_send:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+      
+    - name: send movie to telegram
+      run: INPUT_CAPTION=${{ github.event.inputs.caption_text }} python3 check_input.py  
