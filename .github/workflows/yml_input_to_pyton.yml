@@ -4,7 +4,7 @@ on:
     inputs:
       caption_text:
         type: string 
-        description: caption textt
+        description: caption text
 
 jobs:
   download_and_send:
